@@ -1,0 +1,65 @@
+$background:#fff8f0;
+$button: #ffbc00;
+$text:#fff;
+
+
+
+.container1 {
+    position: fixed;
+    top:600px;
+    bottom: 100px;
+    left: 100px;
+    right: 0px;
+    margin: auto;
+    display: flex;
+   
+}
+
+.particles-btn {
+    position: relative;
+    outline: 0;
+    background-color: $button;
+    font-size: 20px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 4px;
+    color: complement(#fff);
+    box-shadow: 0px 2px 10px lighten($button, 20%);
+    top: -4px;
+    transition: all ease 0.2s;
+    &:hover, &.active{
+      background-color: darken($button, 7%);
+    }
+    &.active{
+        top: 0px;
+        box-shadow: 0px 0px 4px lighten($button, 20%);
+    }
+
+    .particle{
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        opacity: 1;
+        z-index: -2;
+        border-radius: 400px;
+        &:nth-child(even){
+            background-color: lighten($button, 10%) !important;
+        }
+
+    }
+    @for $i from 1 through 400 {
+        .particle:nth-child(#{$i}){
+            $value:#{random(30)}px;
+            height: $value;
+            width: $value;
+            border: #{random(2)}px solid lighten($button, 10%);
+            background-color: transparent;
+            
+        }
+    }
+
+}
